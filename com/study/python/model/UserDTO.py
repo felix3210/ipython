@@ -52,4 +52,4 @@ class UserDTO:
 
     # override __str__ func
     def __str__(self):
-        return 'id: %s, name: %s, mobile: %s, email: %s, gender: %s.' % (self.__id, self.__name, self.__mobile, self.__email, self.__gender)
+        return 'id: %s, name: %s, mobile: %s, email: %s, gender: %s' % (self.__id, self.__name, self.__mobile, self.__email, self.__gender)
