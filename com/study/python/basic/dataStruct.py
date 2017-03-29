@@ -42,7 +42,7 @@ print '-'*100
 
 '''
     Functional Programming Tools: filter()
-    ‘filter(function, sequence)’ returns a sequence consisting of those items from the sequence for which func- tion(item) is true.
+    ‘filter(function, sequence)' returns a sequence consisting of those items from the sequence for which func- tion(item) is true.
     If sequence is a string or tuple, the result will be of the same type; otherwise, it is always a list
 '''
 def f(x): return x % 2 != 0 and x % 3 != 0
@@ -51,7 +51,7 @@ print '-'*100
 
 '''
     Functional Programming Tools: map()
-    ‘map(function, sequence)’ calls function(item) for each of the sequence’s items and returns a list of the return values
+    ‘map(function, sequence)' calls function(item) for each of the sequence's items and returns a list of the return values
 '''
 def cube(x): return x * x * x
 print map(cube, range(1, 11))
@@ -62,7 +62,7 @@ print '-'*100
 
 '''
     Functional Programming Tools: reduce()
-    ‘reduce(function, sequence)’ returns a single value constructed by calling the binary function function on the first two items of the sequence,
+    ‘reduce(function, sequence)' returns a single value constructed by calling the binary function function on the first two items of the sequence,
     then on the result and the next item, and so on
 '''
 def add(x,y): return x+y
@@ -72,7 +72,7 @@ print '-'*100
 def sumFunc(seq):
     def add(x,y): return x+y
     return reduce(add, seq, 'acb')
-print sum(range(1,11))
+print sum(range(1, 11))
 print sum([])
 print '-'*100
 
@@ -142,3 +142,69 @@ print a - b
 print a | b
 print a & b
 print a ^ b
+print '-'*100
+
+'''
+    Dictionary structure
+    It is best to think of a dictionary as an unordered set of key: value pairs, with the requirement that the keys are unique (within one dictionary)
+'''
+tel = {'jack': 4098, 'sape': 4139}
+tel['guido'] = 4127
+print tel
+print tel['sape']
+del tel['guido']
+print tel
+print tel.keys()
+print tel.has_key('jack')
+print tel.values()
+tel.pop('jack')
+print tel
+print dict([('sape', 4139), ('guido', 4127), ('jack', 4098)])
+print dict(sape=4139, guido=4127, jack=4098)
+print '-'*100
+
+# Loop techniques
+knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+for k, v in knights.iteritems():
+    print k, v
+
+for i, v in enumerate(['tic', 'tac', 'toe']):
+    print i, v
+print '-'*100
+
+questions = ['name', 'quest', 'favorite color']
+answers = ['lancelot', 'the holy grail', 'blue']
+for q, a in zip(questions,answers):
+    print 'What is your %s? It is %s.' % (q, a)
+
+for i in reversed(xrange(1, 10, 3)):
+    print i
+
+for f in sorted(set(basket)):
+    print f
+print '-'*100
+
+str1, str2, str3 = '', 'abc', '123'
+notNull = str1 or str2 or str3
+print notNull
+print '-'*100
+
+'''
+    Compare sequences and other types
+    Sequence objects may be compared to other objects with the same sequence type. The comparison uses lexicographical ordering:
+        ﬁrst the ﬁrst two items are compared, and if they differ this determines the outcome of the comparison;
+            if they are equal, the next two items are compared,
+            and so on, until either sequence is exhausted.
+    If two items to be compared are themselves sequences of the same type, the lexicographical comparison is carried out recursively.
+    If all items of two sequences compare equal, the sequences are considered equal.
+    If one sequence is an initial sub-sequence of the other, the shorter sequence is the smaller (lesser) one.
+    Lexicographical ordering for strings uses the ASCII ordering for individual characters. Some examples of comparisons between sequences of the same type
+'''
+print (1, 2, 3) < (1, 2, 4) 
+print [1, 2, 3] < [1, 2, 4] 
+print 'ABC' < 'C' < 'Pascal' < 'Python'
+print (1, 2, 3, 4) < (1, 2, 4)
+print (1, 2) < (1, 2, -1)
+print (1, 2, 3) == (1.0, 2.0, 3.0)
+print (1, 2, ('aa', 'ab')) < (1, 2, ('abc', 'a'), 4)
+print '-'*100
