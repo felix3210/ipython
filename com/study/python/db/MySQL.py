@@ -1,11 +1,14 @@
 #!/user/bin/python
 # -*- coding: UTF-8 -*-
+# @Time    : 2017/3/28 16:16
+# @Author  : felix
+# @Contact : wi1024u@gmail.com
+# @File    : MySQL.py
+# @Desc    : Example how to connection to MySQL db
 
 import MySQLdb
-
 from com.study.python.mgr import UserMgr
 from com.study.python.model import UserDTO
-
 
 dbConnection = None
 try:
